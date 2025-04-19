@@ -1,11 +1,10 @@
 using Grpc.Net.Client;
-using Gopass;
+
 namespace DecentPass;
 
 public partial class CommandPage : ContentPage
 {
     private GopassService.GopassServiceClient _client;
-
     public CommandPage()
 	{
 		InitializeComponent();

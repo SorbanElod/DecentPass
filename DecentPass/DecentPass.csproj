@@ -1,8 +1,9 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
-		<TargetFrameworks>net9.0-android;net9.0-ios;net9.0-maccatalyst</TargetFrameworks>
-		<TargetFrameworks Condition="$([MSBuild]::IsOSPlatform('windows'))">$(TargetFrameworks);net9.0-windows10.0.19041.0</TargetFrameworks>
+		<TargetFrameworks>net9.0-android;net9.0-ios;net9.0-maccatalyst;net9.0-windows10.0.19041.0</TargetFrameworks>
+		
+		<!-- <TargetFrameworks Condition="$([MSBuild]::IsOSPlatform('windows'))">$(TargetFrameworks);net9.0-windows10.0.19041.0</TargetFrameworks> -->
 		<!-- Uncomment to also build the tizen app. You will need to install tizen by following this: https://github.com/Samsung/Tizen.NET -->
 		<!-- <TargetFrameworks>$(TargetFrameworks);net9.0-tizen</TargetFrameworks> -->
 
@@ -65,7 +66,8 @@
 
 	<ItemGroup>
 		<PackageReference Include="Google.Protobuf" Version="3.21.5" />
-		<PackageReference Include="Grpc.Net.ClientFactory" Version="2.49.0" />
+		<PackageReference Include="Grpc.Net.Client" Version="2.70.0" />
+		<PackageReference Include="Grpc.Net.ClientFactory" Version="2.70.0" />
 		<PackageReference Include="Grpc.Tools" Version="2.49.0">
 		  <PrivateAssets>all</PrivateAssets>
 		  <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
@@ -75,11 +77,11 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <Protobuf Include="Protos\gopass.proto" GrpcServices="Client" />
+		<Protobuf Include="Protos\gopass.proto" GrpcServices="Client" ProtoRoot="Protos" OutputDir="%(RelativePath)..\generated" CompileOutputs="true" />
 	</ItemGroup>
 
-	<ItemGroup Condition="'$(TargetFramework)' == 'net9.0-windows10.0.19041.0'">
-		<Protobuf Include="Protos\gopass.proto" GrpcServices="Client" />
+	<ItemGroup>
+		<Compile Include="..\generated\*.cs" Link="generated\%(Filename)%(Extension)" />
 	</ItemGroup>
 	
 	<ItemGroup>
