@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package gopass;
 
-option csharp_namespace= "DecentPass";
+option csharp_namespace= "Gopass";
 
 service GopassService {
   // Run a gopass command and get the result
