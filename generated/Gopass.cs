@@ -9,7 +9,7 @@ using pb = global::Google.Protobuf;
 using pbc = global::Google.Protobuf.Collections;
 using pbr = global::Google.Protobuf.Reflection;
 using scg = global::System.Collections.Generic;
-namespace DecentPass {
+namespace Gopass {
 
   /// <summary>Holder for reflection information generated from gopass.proto</summary>
   public static partial class GopassReflection {
@@ -47,17 +47,17 @@ namespace DecentPass {
             "b25zZSIAEkkKFEV4ZWN1dGVDb21tYW5kU3RyZWFtEhYuZ29wYXNzLkNvbW1h",
             "bmRSZXF1ZXN0GhUuZ29wYXNzLkNvbW1hbmRPdXRwdXQiADABEk4KGUV4ZWN1",
             "dGVJbnRlcmFjdGl2ZUNvbW1hbmQSFC5nb3Bhc3MuQ29tbWFuZElucHV0GhUu",
-            "Z29wYXNzLkNvbW1hbmRPdXRwdXQiACgBMAFCF1oILi4vcHJvdG+qAgpEZWNl",
-            "bnRQYXNzYgZwcm90bzM="));
+            "Z29wYXNzLkNvbW1hbmRPdXRwdXQiACgBMAFCE1oILi4vcHJvdG+qAgZHb3Bh",
+            "c3NiBnByb3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::DecentPass.PingRequest), global::DecentPass.PingRequest.Parser, new[]{ "Message" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::DecentPass.PingResponse), global::DecentPass.PingResponse.Parser, new[]{ "Message", "Timestamp", "Success" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::DecentPass.CommandRequest), global::DecentPass.CommandRequest.Parser, new[]{ "Args", "WorkingDir", "EnvVars", "TimeoutSeconds" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { null, }),
-            new pbr::GeneratedClrTypeInfo(typeof(global::DecentPass.CommandResponse), global::DecentPass.CommandResponse.Parser, new[]{ "Stdout", "Stderr", "ExitCode", "Success", "ErrorMessage", "ExecutionTimeMs" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::DecentPass.CommandOutput), global::DecentPass.CommandOutput.Parser, new[]{ "Data", "IsStderr", "IsFinal", "ExitCode", "ErrorMessage" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::DecentPass.CommandInput), global::DecentPass.CommandInput.Parser, new[]{ "Args", "Input", "CloseStdin", "WorkingDir", "EnvVars", "Cancel" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { null, })
+            new pbr::GeneratedClrTypeInfo(typeof(global::Gopass.PingRequest), global::Gopass.PingRequest.Parser, new[]{ "Message" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Gopass.PingResponse), global::Gopass.PingResponse.Parser, new[]{ "Message", "Timestamp", "Success" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Gopass.CommandRequest), global::Gopass.CommandRequest.Parser, new[]{ "Args", "WorkingDir", "EnvVars", "TimeoutSeconds" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { null, }),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Gopass.CommandResponse), global::Gopass.CommandResponse.Parser, new[]{ "Stdout", "Stderr", "ExitCode", "Success", "ErrorMessage", "ExecutionTimeMs" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Gopass.CommandOutput), global::Gopass.CommandOutput.Parser, new[]{ "Data", "IsStderr", "IsFinal", "ExitCode", "ErrorMessage" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Gopass.CommandInput), global::Gopass.CommandInput.Parser, new[]{ "Args", "Input", "CloseStdin", "WorkingDir", "EnvVars", "Cancel" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { null, })
           }));
     }
     #endregion
@@ -78,7 +78,7 @@ namespace DecentPass {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::DecentPass.GopassReflection.Descriptor.MessageTypes[0]; }
+      get { return global::Gopass.GopassReflection.Descriptor.MessageTypes[0]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -270,7 +270,7 @@ namespace DecentPass {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::DecentPass.GopassReflection.Descriptor.MessageTypes[1]; }
+      get { return global::Gopass.GopassReflection.Descriptor.MessageTypes[1]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -542,7 +542,7 @@ namespace DecentPass {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::DecentPass.GopassReflection.Descriptor.MessageTypes[2]; }
+      get { return global::Gopass.GopassReflection.Descriptor.MessageTypes[2]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -832,7 +832,7 @@ namespace DecentPass {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::DecentPass.GopassReflection.Descriptor.MessageTypes[3]; }
+      get { return global::Gopass.GopassReflection.Descriptor.MessageTypes[3]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -1224,7 +1224,7 @@ namespace DecentPass {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::DecentPass.GopassReflection.Descriptor.MessageTypes[4]; }
+      get { return global::Gopass.GopassReflection.Descriptor.MessageTypes[4]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -1576,7 +1576,7 @@ namespace DecentPass {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::DecentPass.GopassReflection.Descriptor.MessageTypes[5]; }
+      get { return global::Gopass.GopassReflection.Descriptor.MessageTypes[5]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]

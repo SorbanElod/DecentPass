@@ -7,7 +7,7 @@
 
 using grpc = global::Grpc.Core;
 
-namespace DecentPass {
+namespace Gopass {
   public static partial class Ping
   {
     static readonly string __ServiceName = "gopass.Ping";
@@ -46,12 +46,12 @@ namespace DecentPass {
     }
 
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-    static readonly grpc::Marshaller<global::DecentPass.PingRequest> __Marshaller_gopass_PingRequest = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::DecentPass.PingRequest.Parser));
+    static readonly grpc::Marshaller<global::Gopass.PingRequest> __Marshaller_gopass_PingRequest = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::Gopass.PingRequest.Parser));
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-    static readonly grpc::Marshaller<global::DecentPass.PingResponse> __Marshaller_gopass_PingResponse = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::DecentPass.PingResponse.Parser));
+    static readonly grpc::Marshaller<global::Gopass.PingResponse> __Marshaller_gopass_PingResponse = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::Gopass.PingResponse.Parser));
 
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-    static readonly grpc::Method<global::DecentPass.PingRequest, global::DecentPass.PingResponse> __Method_Ping = new grpc::Method<global::DecentPass.PingRequest, global::DecentPass.PingResponse>(
+    static readonly grpc::Method<global::Gopass.PingRequest, global::Gopass.PingResponse> __Method_Ping = new grpc::Method<global::Gopass.PingRequest, global::Gopass.PingResponse>(
         grpc::MethodType.Unary,
         __ServiceName,
         "Ping",
@@ -61,7 +61,7 @@ namespace DecentPass {
     /// <summary>Service descriptor</summary>
     public static global::Google.Protobuf.Reflection.ServiceDescriptor Descriptor
     {
-      get { return global::DecentPass.GopassReflection.Descriptor.Services[0]; }
+      get { return global::Gopass.GopassReflection.Descriptor.Services[0]; }
     }
 
     /// <summary>Client for Ping</summary>
@@ -100,7 +100,7 @@ namespace DecentPass {
       /// <param name="cancellationToken">An optional token for canceling the call.</param>
       /// <returns>The response received from the server.</returns>
       [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-      public virtual global::DecentPass.PingResponse Ping(global::DecentPass.PingRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      public virtual global::Gopass.PingResponse Ping(global::Gopass.PingRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
       {
         return Ping(request, new grpc::CallOptions(headers, deadline, cancellationToken));
       }
@@ -111,7 +111,7 @@ namespace DecentPass {
       /// <param name="options">The options for the call.</param>
       /// <returns>The response received from the server.</returns>
       [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-      public virtual global::DecentPass.PingResponse Ping(global::DecentPass.PingRequest request, grpc::CallOptions options)
+      public virtual global::Gopass.PingResponse Ping(global::Gopass.PingRequest request, grpc::CallOptions options)
       {
         return CallInvoker.BlockingUnaryCall(__Method_Ping, null, options, request);
       }
@@ -124,7 +124,7 @@ namespace DecentPass {
       /// <param name="cancellationToken">An optional token for canceling the call.</param>
       /// <returns>The call object.</returns>
       [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-      public virtual grpc::AsyncUnaryCall<global::DecentPass.PingResponse> PingAsync(global::DecentPass.PingRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      public virtual grpc::AsyncUnaryCall<global::Gopass.PingResponse> PingAsync(global::Gopass.PingRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
       {
         return PingAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
       }
@@ -135,7 +135,7 @@ namespace DecentPass {
       /// <param name="options">The options for the call.</param>
       /// <returns>The call object.</returns>
       [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-      public virtual grpc::AsyncUnaryCall<global::DecentPass.PingResponse> PingAsync(global::DecentPass.PingRequest request, grpc::CallOptions options)
+      public virtual grpc::AsyncUnaryCall<global::Gopass.PingResponse> PingAsync(global::Gopass.PingRequest request, grpc::CallOptions options)
       {
         return CallInvoker.AsyncUnaryCall(__Method_Ping, null, options, request);
       }
@@ -186,16 +186,16 @@ namespace DecentPass {
     }
 
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-    static readonly grpc::Marshaller<global::DecentPass.CommandRequest> __Marshaller_gopass_CommandRequest = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::DecentPass.CommandRequest.Parser));
+    static readonly grpc::Marshaller<global::Gopass.CommandRequest> __Marshaller_gopass_CommandRequest = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::Gopass.CommandRequest.Parser));
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-    static readonly grpc::Marshaller<global::DecentPass.CommandResponse> __Marshaller_gopass_CommandResponse = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::DecentPass.CommandResponse.Parser));
+    static readonly grpc::Marshaller<global::Gopass.CommandResponse> __Marshaller_gopass_CommandResponse = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::Gopass.CommandResponse.Parser));
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-    static readonly grpc::Marshaller<global::DecentPass.CommandOutput> __Marshaller_gopass_CommandOutput = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::DecentPass.CommandOutput.Parser));
+    static readonly grpc::Marshaller<global::Gopass.CommandOutput> __Marshaller_gopass_CommandOutput = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::Gopass.CommandOutput.Parser));
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-    static readonly grpc::Marshaller<global::DecentPass.CommandInput> __Marshaller_gopass_CommandInput = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::DecentPass.CommandInput.Parser));
+    static readonly grpc::Marshaller<global::Gopass.CommandInput> __Marshaller_gopass_CommandInput = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::Gopass.CommandInput.Parser));
 
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-    static readonly grpc::Method<global::DecentPass.CommandRequest, global::DecentPass.CommandResponse> __Method_ExecuteCommand = new grpc::Method<global::DecentPass.CommandRequest, global::DecentPass.CommandResponse>(
+    static readonly grpc::Method<global::Gopass.CommandRequest, global::Gopass.CommandResponse> __Method_ExecuteCommand = new grpc::Method<global::Gopass.CommandRequest, global::Gopass.CommandResponse>(
         grpc::MethodType.Unary,
         __ServiceName,
         "ExecuteCommand",
@@ -203,7 +203,7 @@ namespace DecentPass {
         __Marshaller_gopass_CommandResponse);
 
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-    static readonly grpc::Method<global::DecentPass.CommandRequest, global::DecentPass.CommandOutput> __Method_ExecuteCommandStream = new grpc::Method<global::DecentPass.CommandRequest, global::DecentPass.CommandOutput>(
+    static readonly grpc::Method<global::Gopass.CommandRequest, global::Gopass.CommandOutput> __Method_ExecuteCommandStream = new grpc::Method<global::Gopass.CommandRequest, global::Gopass.CommandOutput>(
         grpc::MethodType.ServerStreaming,
         __ServiceName,
         "ExecuteCommandStream",
@@ -211,7 +211,7 @@ namespace DecentPass {
         __Marshaller_gopass_CommandOutput);
 
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-    static readonly grpc::Method<global::DecentPass.CommandInput, global::DecentPass.CommandOutput> __Method_ExecuteInteractiveCommand = new grpc::Method<global::DecentPass.CommandInput, global::DecentPass.CommandOutput>(
+    static readonly grpc::Method<global::Gopass.CommandInput, global::Gopass.CommandOutput> __Method_ExecuteInteractiveCommand = new grpc::Method<global::Gopass.CommandInput, global::Gopass.CommandOutput>(
         grpc::MethodType.DuplexStreaming,
         __ServiceName,
         "ExecuteInteractiveCommand",
@@ -221,7 +221,7 @@ namespace DecentPass {
     /// <summary>Service descriptor</summary>
     public static global::Google.Protobuf.Reflection.ServiceDescriptor Descriptor
     {
-      get { return global::DecentPass.GopassReflection.Descriptor.Services[1]; }
+      get { return global::Gopass.GopassReflection.Descriptor.Services[1]; }
     }
 
     /// <summary>Client for GopassService</summary>
@@ -260,7 +260,7 @@ namespace DecentPass {
       /// <param name="cancellationToken">An optional token for canceling the call.</param>
       /// <returns>The response received from the server.</returns>
       [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-      public virtual global::DecentPass.CommandResponse ExecuteCommand(global::DecentPass.CommandRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      public virtual global::Gopass.CommandResponse ExecuteCommand(global::Gopass.CommandRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
       {
         return ExecuteCommand(request, new grpc::CallOptions(headers, deadline, cancellationToken));
       }
@@ -271,7 +271,7 @@ namespace DecentPass {
       /// <param name="options">The options for the call.</param>
       /// <returns>The response received from the server.</returns>
       [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-      public virtual global::DecentPass.CommandResponse ExecuteCommand(global::DecentPass.CommandRequest request, grpc::CallOptions options)
+      public virtual global::Gopass.CommandResponse ExecuteCommand(global::Gopass.CommandRequest request, grpc::CallOptions options)
       {
         return CallInvoker.BlockingUnaryCall(__Method_ExecuteCommand, null, options, request);
       }
@@ -284,7 +284,7 @@ namespace DecentPass {
       /// <param name="cancellationToken">An optional token for canceling the call.</param>
       /// <returns>The call object.</returns>
       [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-      public virtual grpc::AsyncUnaryCall<global::DecentPass.CommandResponse> ExecuteCommandAsync(global::DecentPass.CommandRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      public virtual grpc::AsyncUnaryCall<global::Gopass.CommandResponse> ExecuteCommandAsync(global::Gopass.CommandRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
       {
         return ExecuteCommandAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
       }
@@ -295,7 +295,7 @@ namespace DecentPass {
       /// <param name="options">The options for the call.</param>
       /// <returns>The call object.</returns>
       [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-      public virtual grpc::AsyncUnaryCall<global::DecentPass.CommandResponse> ExecuteCommandAsync(global::DecentPass.CommandRequest request, grpc::CallOptions options)
+      public virtual grpc::AsyncUnaryCall<global::Gopass.CommandResponse> ExecuteCommandAsync(global::Gopass.CommandRequest request, grpc::CallOptions options)
       {
         return CallInvoker.AsyncUnaryCall(__Method_ExecuteCommand, null, options, request);
       }
@@ -308,7 +308,7 @@ namespace DecentPass {
       /// <param name="cancellationToken">An optional token for canceling the call.</param>
       /// <returns>The call object.</returns>
       [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-      public virtual grpc::AsyncServerStreamingCall<global::DecentPass.CommandOutput> ExecuteCommandStream(global::DecentPass.CommandRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      public virtual grpc::AsyncServerStreamingCall<global::Gopass.CommandOutput> ExecuteCommandStream(global::Gopass.CommandRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
       {
         return ExecuteCommandStream(request, new grpc::CallOptions(headers, deadline, cancellationToken));
       }
@@ -319,7 +319,7 @@ namespace DecentPass {
       /// <param name="options">The options for the call.</param>
       /// <returns>The call object.</returns>
       [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-      public virtual grpc::AsyncServerStreamingCall<global::DecentPass.CommandOutput> ExecuteCommandStream(global::DecentPass.CommandRequest request, grpc::CallOptions options)
+      public virtual grpc::AsyncServerStreamingCall<global::Gopass.CommandOutput> ExecuteCommandStream(global::Gopass.CommandRequest request, grpc::CallOptions options)
       {
         return CallInvoker.AsyncServerStreamingCall(__Method_ExecuteCommandStream, null, options, request);
       }
@@ -331,7 +331,7 @@ namespace DecentPass {
       /// <param name="cancellationToken">An optional token for canceling the call.</param>
       /// <returns>The call object.</returns>
       [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-      public virtual grpc::AsyncDuplexStreamingCall<global::DecentPass.CommandInput, global::DecentPass.CommandOutput> ExecuteInteractiveCommand(grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      public virtual grpc::AsyncDuplexStreamingCall<global::Gopass.CommandInput, global::Gopass.CommandOutput> ExecuteInteractiveCommand(grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
       {
         return ExecuteInteractiveCommand(new grpc::CallOptions(headers, deadline, cancellationToken));
       }
@@ -341,7 +341,7 @@ namespace DecentPass {
       /// <param name="options">The options for the call.</param>
       /// <returns>The call object.</returns>
       [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-      public virtual grpc::AsyncDuplexStreamingCall<global::DecentPass.CommandInput, global::DecentPass.CommandOutput> ExecuteInteractiveCommand(grpc::CallOptions options)
+      public virtual grpc::AsyncDuplexStreamingCall<global::Gopass.CommandInput, global::Gopass.CommandOutput> ExecuteInteractiveCommand(grpc::CallOptions options)
       {
         return CallInvoker.AsyncDuplexStreamingCall(__Method_ExecuteInteractiveCommand, null, options);
       }
