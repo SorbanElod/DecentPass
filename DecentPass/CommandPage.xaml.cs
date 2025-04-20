@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 namespace DecentPass;
 public partial class CommandPage : ContentPage
 {
-    private GopassService.GopassServiceClient _client;
+    private readonly GopassService.GopassServiceClient _client;
     public CommandPage()
     {
         InitializeComponent();
