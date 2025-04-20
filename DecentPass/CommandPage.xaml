@@ -9,7 +9,7 @@
                    Text=""
                    FontFamily="Courier New"
                    FontSize="14"
-                   TextColor="LimeGreen"
+                   TextColor="Turquoise"
                    BackgroundColor="Black"
                    Padding="10"
                    LineBreakMode="WordWrap" />

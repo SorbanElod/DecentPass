@@ -1,83 +1,49 @@
-using Gopass;
-using Grpc.Net.Client;
+using Grpc.Core;
 using Microsoft.Maui.Controls;
-using System.Threading.Tasks;
+using Microsoft.Maui;
+using ObjCRuntime;
+using static System.Net.Mime.MediaTypeNames;
+using System.Threading.Channels;
 
-namespace DecentPass;
+using System.Xml.Linq;
 
-public partial class CommandPage : ContentPage
-{
-    private GopassService.GopassServiceClient _client;
-    public CommandPage()
-	{
-		InitializeComponent();
+<? xml version = "1.0" encoding = "utf-8" ?>
+< ContentPage xmlns = "http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns: x = "http://schemas.microsoft.com/winfx/2009/xaml"
+             x: Class = "DecentPass.CommandPage"
+             Title = "GoPass Commands" >
 
-        // connect to local grpc server
-        var channel = GrpcChannel.ForAddress("http://localhost:50051");
-        _client = new GopassService.GopassServiceClient(channel);
-    }
 
-    private async void OnCommandEntered(object sender, EventArgs e)
-    {
-        string command = CommandEntry.Text.Trim();
+    < Grid x: Name = "MainLayout" Margin = "20" RowDefinitions = "Auto,Auto,*,Auto" >
 
-        if (string.IsNullOrEmpty(command))
-        {
-            return;
-        }
 
-        AppendOutput($"Command: {command}");
-        CommandEntry.Text = string.Empty;
+        < !--Command entry-- >
+        < Entry x: Name = "CommandEntry"
+               Placeholder = "Enter gopass command"
+               Completed = "OnCommandEntered"
+               Grid.Row = "0" />
 
-        try
-        {
-            var output = await RunCommand(command);
-            AppendOutput(output);
-        }
-        catch (Exception ex)
-        {
-            AppendOutput($"Error: {ex.Message}");
-        }
-    }
 
-    private void AppendOutput(string output)
-    {
-        OutputLabel.Text += $"{output}\n";
-    }
+        < !--Cancel button(initially hidden)-- >
+        < Button x: Name = "CancelButton"
+                Text = "Cancel Command"
+                IsVisible = "False"
+                Clicked = "OnCancelCommand"
+                Grid.Row = "1" />
 
-    private async Task<string> RunCommand(string input)
-    {
-        var args = input.Split(' ', StringSplitOptions.RemoveEmptyEntries);
-        if(args.Length == 0)
-        {
-            return "No command provided.";
-        }
-        var request = new CommandRequest
-        {
-            TimeoutSeconds = 10, // adjust as needed
-            WorkingDir = args[0], // optional, you can set default path
-        };
 
-        request.Args.AddRange(args);
-        
-        var response = await _client.ExecuteCommandAsync(request);
+        < !--Output area-- >
+        < ScrollView x: Name = "OutputScrollView" Grid.Row = "2" >
+            < Label x: Name = "OutputLabel"
+                   LineBreakMode = "WordWrap"
+                   FontFamily = "Consolas"
+                   Padding = "10" />
+        </ ScrollView >
 
-        string result = string.Empty;
 
-        if (!string.IsNullOrWhiteSpace(response.Stdout))
-        {
-            result += $"Output: {response.Stdout}\n";
-        }
-        if (!string.IsNullOrWhiteSpace(response.Stderr))
-        {
-            result += $"Error: {response.Stderr}\n";
-        }
-        result += $"Exit Code: {response.ExitCode} - Success: {response.Success}\n";
-
-        if(!string.IsNullOrWhiteSpace(response.ErrorMessage))
-        {
-            result += $"Error: {response.ErrorMessage}\n";
-        }
-        return result;
-    }
-}
+        < !--Status indicator-- >
+        < ActivityIndicator x: Name = "CommandActivity"
+                          IsRunning = "False"
+                          Grid.Row = "3" />
+    </ Grid >
+</ ContentPage >

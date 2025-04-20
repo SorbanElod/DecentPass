@@ -24,36 +24,30 @@ namespace Gopass {
     static GopassReflection() {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
-            "Cgxnb3Bhc3MucHJvdG8SBmdvcGFzcyIeCgtQaW5nUmVxdWVzdBIPCgdtZXNz",
-            "YWdlGAEgASgJIkMKDFBpbmdSZXNwb25zZRIPCgdtZXNzYWdlGAEgASgJEhEK",
-            "CXRpbWVzdGFtcBgCIAEoAxIPCgdzdWNjZXNzGAMgASgIIrMBCg5Db21tYW5k",
-            "UmVxdWVzdBIMCgRhcmdzGAEgAygJEhMKC3dvcmtpbmdfZGlyGAIgASgJEjUK",
-            "CGVudl92YXJzGAMgAygLMiMuZ29wYXNzLkNvbW1hbmRSZXF1ZXN0LkVudlZh",
-            "cnNFbnRyeRIXCg90aW1lb3V0X3NlY29uZHMYBCABKAUaLgoMRW52VmFyc0Vu",
-            "dHJ5EgsKA2tleRgBIAEoCRINCgV2YWx1ZRgCIAEoCToCOAEihwEKD0NvbW1h",
-            "bmRSZXNwb25zZRIOCgZzdGRvdXQYASABKAkSDgoGc3RkZXJyGAIgASgJEhEK",
-            "CWV4aXRfY29kZRgDIAEoBRIPCgdzdWNjZXNzGAQgASgIEhUKDWVycm9yX21l",
-            "c3NhZ2UYBSABKAkSGQoRZXhlY3V0aW9uX3RpbWVfbXMYBiABKAMibAoNQ29t",
-            "bWFuZE91dHB1dBIMCgRkYXRhGAEgASgMEhEKCWlzX3N0ZGVychgCIAEoCBIQ",
-            "Cghpc19maW5hbBgDIAEoCBIRCglleGl0X2NvZGUYBCABKAUSFQoNZXJyb3Jf",
-            "bWVzc2FnZRgFIAEoCSLKAQoMQ29tbWFuZElucHV0EgwKBGFyZ3MYASADKAkS",
-            "DQoFaW5wdXQYAiABKAwSEwoLY2xvc2Vfc3RkaW4YAyABKAgSEwoLd29ya2lu",
-            "Z19kaXIYBCABKAkSMwoIZW52X3ZhcnMYBSADKAsyIS5nb3Bhc3MuQ29tbWFu",
-            "ZElucHV0LkVudlZhcnNFbnRyeRIOCgZjYW5jZWwYBiABKAgaLgoMRW52VmFy",
-            "c0VudHJ5EgsKA2tleRgBIAEoCRINCgV2YWx1ZRgCIAEoCToCOAEyOwoEUGlu",
-            "ZxIzCgRQaW5nEhMuZ29wYXNzLlBpbmdSZXF1ZXN0GhQuZ29wYXNzLlBpbmdS",
-            "ZXNwb25zZSIAMu8BCg1Hb3Bhc3NTZXJ2aWNlEkMKDkV4ZWN1dGVDb21tYW5k",
-            "EhYuZ29wYXNzLkNvbW1hbmRSZXF1ZXN0GhcuZ29wYXNzLkNvbW1hbmRSZXNw",
-            "b25zZSIAEkkKFEV4ZWN1dGVDb21tYW5kU3RyZWFtEhYuZ29wYXNzLkNvbW1h",
-            "bmRSZXF1ZXN0GhUuZ29wYXNzLkNvbW1hbmRPdXRwdXQiADABEk4KGUV4ZWN1",
-            "dGVJbnRlcmFjdGl2ZUNvbW1hbmQSFC5nb3Bhc3MuQ29tbWFuZElucHV0GhUu",
-            "Z29wYXNzLkNvbW1hbmRPdXRwdXQiACgBMAFCE1oILi4vcHJvdG+qAgZHb3Bh",
-            "c3NiBnByb3RvMw=="));
+            "Cgxnb3Bhc3MucHJvdG8SBmdvcGFzcyKzAQoOQ29tbWFuZFJlcXVlc3QSDAoE",
+            "YXJncxgBIAMoCRITCgt3b3JraW5nX2RpchgCIAEoCRI1CghlbnZfdmFycxgD",
+            "IAMoCzIjLmdvcGFzcy5Db21tYW5kUmVxdWVzdC5FbnZWYXJzRW50cnkSFwoP",
+            "dGltZW91dF9zZWNvbmRzGAQgASgFGi4KDEVudlZhcnNFbnRyeRILCgNrZXkY",
+            "ASABKAkSDQoFdmFsdWUYAiABKAk6AjgBIocBCg9Db21tYW5kUmVzcG9uc2US",
+            "DgoGc3Rkb3V0GAEgASgJEg4KBnN0ZGVychgCIAEoCRIRCglleGl0X2NvZGUY",
+            "AyABKAUSDwoHc3VjY2VzcxgEIAEoCBIVCg1lcnJvcl9tZXNzYWdlGAUgASgJ",
+            "EhkKEWV4ZWN1dGlvbl90aW1lX21zGAYgASgDImwKDUNvbW1hbmRPdXRwdXQS",
+            "DAoEZGF0YRgBIAEoDBIRCglpc19zdGRlcnIYAiABKAgSEAoIaXNfZmluYWwY",
+            "AyABKAgSEQoJZXhpdF9jb2RlGAQgASgFEhUKDWVycm9yX21lc3NhZ2UYBSAB",
+            "KAkiygEKDENvbW1hbmRJbnB1dBIMCgRhcmdzGAEgAygJEg0KBWlucHV0GAIg",
+            "ASgMEhMKC2Nsb3NlX3N0ZGluGAMgASgIEhMKC3dvcmtpbmdfZGlyGAQgASgJ",
+            "EjMKCGVudl92YXJzGAUgAygLMiEuZ29wYXNzLkNvbW1hbmRJbnB1dC5FbnZW",
+            "YXJzRW50cnkSDgoGY2FuY2VsGAYgASgIGi4KDEVudlZhcnNFbnRyeRILCgNr",
+            "ZXkYASABKAkSDQoFdmFsdWUYAiABKAk6AjgBMu8BCg1Hb3Bhc3NTZXJ2aWNl",
+            "EkMKDkV4ZWN1dGVDb21tYW5kEhYuZ29wYXNzLkNvbW1hbmRSZXF1ZXN0Ghcu",
+            "Z29wYXNzLkNvbW1hbmRSZXNwb25zZSIAEkkKFEV4ZWN1dGVDb21tYW5kU3Ry",
+            "ZWFtEhYuZ29wYXNzLkNvbW1hbmRSZXF1ZXN0GhUuZ29wYXNzLkNvbW1hbmRP",
+            "dXRwdXQiADABEk4KGUV4ZWN1dGVJbnRlcmFjdGl2ZUNvbW1hbmQSFC5nb3Bh",
+            "c3MuQ29tbWFuZElucHV0GhUuZ29wYXNzLkNvbW1hbmRPdXRwdXQiACgBMAFC",
+            "E1oILi4vcHJvdG+qAgZHb3Bhc3NiBnByb3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::Gopass.PingRequest), global::Gopass.PingRequest.Parser, new[]{ "Message" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Gopass.PingResponse), global::Gopass.PingResponse.Parser, new[]{ "Message", "Timestamp", "Success" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Gopass.CommandRequest), global::Gopass.CommandRequest.Parser, new[]{ "Args", "WorkingDir", "EnvVars", "TimeoutSeconds" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { null, }),
             new pbr::GeneratedClrTypeInfo(typeof(global::Gopass.CommandResponse), global::Gopass.CommandResponse.Parser, new[]{ "Stdout", "Stderr", "ExitCode", "Success", "ErrorMessage", "ExecutionTimeMs" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Gopass.CommandOutput), global::Gopass.CommandOutput.Parser, new[]{ "Data", "IsStderr", "IsFinal", "ExitCode", "ErrorMessage" }, null, null, null, null),
@@ -64,470 +58,6 @@ namespace Gopass {
 
   }
   #region Messages
-  public sealed partial class PingRequest : pb::IMessage<PingRequest>
-  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-      , pb::IBufferMessage
-  #endif
-  {
-    private static readonly pb::MessageParser<PingRequest> _parser = new pb::MessageParser<PingRequest>(() => new PingRequest());
-    private pb::UnknownFieldSet _unknownFields;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public static pb::MessageParser<PingRequest> Parser { get { return _parser; } }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public static pbr::MessageDescriptor Descriptor {
-      get { return global::Gopass.GopassReflection.Descriptor.MessageTypes[0]; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    pbr::MessageDescriptor pb::IMessage.Descriptor {
-      get { return Descriptor; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public PingRequest() {
-      OnConstruction();
-    }
-
-    partial void OnConstruction();
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public PingRequest(PingRequest other) : this() {
-      message_ = other.message_;
-      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public PingRequest Clone() {
-      return new PingRequest(this);
-    }
-
-    /// <summary>Field number for the "message" field.</summary>
-    public const int MessageFieldNumber = 1;
-    private string message_ = "";
-    /// <summary>
-    /// Optional message to send with the ping
-    /// </summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public string Message {
-      get { return message_; }
-      set {
-        message_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
-      }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public override bool Equals(object other) {
-      return Equals(other as PingRequest);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public bool Equals(PingRequest other) {
-      if (ReferenceEquals(other, null)) {
-        return false;
-      }
-      if (ReferenceEquals(other, this)) {
-        return true;
-      }
-      if (Message != other.Message) return false;
-      return Equals(_unknownFields, other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public override int GetHashCode() {
-      int hash = 1;
-      if (Message.Length != 0) hash ^= Message.GetHashCode();
-      if (_unknownFields != null) {
-        hash ^= _unknownFields.GetHashCode();
-      }
-      return hash;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public override string ToString() {
-      return pb::JsonFormatter.ToDiagnosticString(this);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public void WriteTo(pb::CodedOutputStream output) {
-    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-      output.WriteRawMessage(this);
-    #else
-      if (Message.Length != 0) {
-        output.WriteRawTag(10);
-        output.WriteString(Message);
-      }
-      if (_unknownFields != null) {
-        _unknownFields.WriteTo(output);
-      }
-    #endif
-    }
-
-    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-      if (Message.Length != 0) {
-        output.WriteRawTag(10);
-        output.WriteString(Message);
-      }
-      if (_unknownFields != null) {
-        _unknownFields.WriteTo(ref output);
-      }
-    }
-    #endif
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public int CalculateSize() {
-      int size = 0;
-      if (Message.Length != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeStringSize(Message);
-      }
-      if (_unknownFields != null) {
-        size += _unknownFields.CalculateSize();
-      }
-      return size;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public void MergeFrom(PingRequest other) {
-      if (other == null) {
-        return;
-      }
-      if (other.Message.Length != 0) {
-        Message = other.Message;
-      }
-      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public void MergeFrom(pb::CodedInputStream input) {
-    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-      input.ReadRawMessage(this);
-    #else
-      uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
-          default:
-            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
-            break;
-          case 10: {
-            Message = input.ReadString();
-            break;
-          }
-        }
-      }
-    #endif
-    }
-
-    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
-      uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
-          default:
-            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
-            break;
-          case 10: {
-            Message = input.ReadString();
-            break;
-          }
-        }
-      }
-    }
-    #endif
-
-  }
-
-  public sealed partial class PingResponse : pb::IMessage<PingResponse>
-  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-      , pb::IBufferMessage
-  #endif
-  {
-    private static readonly pb::MessageParser<PingResponse> _parser = new pb::MessageParser<PingResponse>(() => new PingResponse());
-    private pb::UnknownFieldSet _unknownFields;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public static pb::MessageParser<PingResponse> Parser { get { return _parser; } }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public static pbr::MessageDescriptor Descriptor {
-      get { return global::Gopass.GopassReflection.Descriptor.MessageTypes[1]; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    pbr::MessageDescriptor pb::IMessage.Descriptor {
-      get { return Descriptor; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public PingResponse() {
-      OnConstruction();
-    }
-
-    partial void OnConstruction();
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public PingResponse(PingResponse other) : this() {
-      message_ = other.message_;
-      timestamp_ = other.timestamp_;
-      success_ = other.success_;
-      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public PingResponse Clone() {
-      return new PingResponse(this);
-    }
-
-    /// <summary>Field number for the "message" field.</summary>
-    public const int MessageFieldNumber = 1;
-    private string message_ = "";
-    /// <summary>
-    /// Response message
-    /// </summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public string Message {
-      get { return message_; }
-      set {
-        message_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
-      }
-    }
-
-    /// <summary>Field number for the "timestamp" field.</summary>
-    public const int TimestampFieldNumber = 2;
-    private long timestamp_;
-    /// <summary>
-    /// Timestamp of the ping
-    /// </summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public long Timestamp {
-      get { return timestamp_; }
-      set {
-        timestamp_ = value;
-      }
-    }
-
-    /// <summary>Field number for the "success" field.</summary>
-    public const int SuccessFieldNumber = 3;
-    private bool success_;
-    /// <summary>
-    /// Success flag
-    /// </summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public bool Success {
-      get { return success_; }
-      set {
-        success_ = value;
-      }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public override bool Equals(object other) {
-      return Equals(other as PingResponse);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public bool Equals(PingResponse other) {
-      if (ReferenceEquals(other, null)) {
-        return false;
-      }
-      if (ReferenceEquals(other, this)) {
-        return true;
-      }
-      if (Message != other.Message) return false;
-      if (Timestamp != other.Timestamp) return false;
-      if (Success != other.Success) return false;
-      return Equals(_unknownFields, other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public override int GetHashCode() {
-      int hash = 1;
-      if (Message.Length != 0) hash ^= Message.GetHashCode();
-      if (Timestamp != 0L) hash ^= Timestamp.GetHashCode();
-      if (Success != false) hash ^= Success.GetHashCode();
-      if (_unknownFields != null) {
-        hash ^= _unknownFields.GetHashCode();
-      }
-      return hash;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public override string ToString() {
-      return pb::JsonFormatter.ToDiagnosticString(this);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public void WriteTo(pb::CodedOutputStream output) {
-    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-      output.WriteRawMessage(this);
-    #else
-      if (Message.Length != 0) {
-        output.WriteRawTag(10);
-        output.WriteString(Message);
-      }
-      if (Timestamp != 0L) {
-        output.WriteRawTag(16);
-        output.WriteInt64(Timestamp);
-      }
-      if (Success != false) {
-        output.WriteRawTag(24);
-        output.WriteBool(Success);
-      }
-      if (_unknownFields != null) {
-        _unknownFields.WriteTo(output);
-      }
-    #endif
-    }
-
-    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-      if (Message.Length != 0) {
-        output.WriteRawTag(10);
-        output.WriteString(Message);
-      }
-      if (Timestamp != 0L) {
-        output.WriteRawTag(16);
-        output.WriteInt64(Timestamp);
-      }
-      if (Success != false) {
-        output.WriteRawTag(24);
-        output.WriteBool(Success);
-      }
-      if (_unknownFields != null) {
-        _unknownFields.WriteTo(ref output);
-      }
-    }
-    #endif
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public int CalculateSize() {
-      int size = 0;
-      if (Message.Length != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeStringSize(Message);
-      }
-      if (Timestamp != 0L) {
-        size += 1 + pb::CodedOutputStream.ComputeInt64Size(Timestamp);
-      }
-      if (Success != false) {
-        size += 1 + 1;
-      }
-      if (_unknownFields != null) {
-        size += _unknownFields.CalculateSize();
-      }
-      return size;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public void MergeFrom(PingResponse other) {
-      if (other == null) {
-        return;
-      }
-      if (other.Message.Length != 0) {
-        Message = other.Message;
-      }
-      if (other.Timestamp != 0L) {
-        Timestamp = other.Timestamp;
-      }
-      if (other.Success != false) {
-        Success = other.Success;
-      }
-      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public void MergeFrom(pb::CodedInputStream input) {
-    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-      input.ReadRawMessage(this);
-    #else
-      uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
-          default:
-            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
-            break;
-          case 10: {
-            Message = input.ReadString();
-            break;
-          }
-          case 16: {
-            Timestamp = input.ReadInt64();
-            break;
-          }
-          case 24: {
-            Success = input.ReadBool();
-            break;
-          }
-        }
-      }
-    #endif
-    }
-
-    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
-      uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
-          default:
-            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
-            break;
-          case 10: {
-            Message = input.ReadString();
-            break;
-          }
-          case 16: {
-            Timestamp = input.ReadInt64();
-            break;
-          }
-          case 24: {
-            Success = input.ReadBool();
-            break;
-          }
-        }
-      }
-    }
-    #endif
-
-  }
-
   public sealed partial class CommandRequest : pb::IMessage<CommandRequest>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -542,7 +72,7 @@ namespace Gopass {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Gopass.GopassReflection.Descriptor.MessageTypes[2]; }
+      get { return global::Gopass.GopassReflection.Descriptor.MessageTypes[0]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -832,7 +362,7 @@ namespace Gopass {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Gopass.GopassReflection.Descriptor.MessageTypes[3]; }
+      get { return global::Gopass.GopassReflection.Descriptor.MessageTypes[1]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -1224,7 +754,7 @@ namespace Gopass {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Gopass.GopassReflection.Descriptor.MessageTypes[4]; }
+      get { return global::Gopass.GopassReflection.Descriptor.MessageTypes[2]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -1576,7 +1106,7 @@ namespace Gopass {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Gopass.GopassReflection.Descriptor.MessageTypes[5]; }
+      get { return global::Gopass.GopassReflection.Descriptor.MessageTypes[3]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]

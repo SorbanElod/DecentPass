@@ -60,9 +60,6 @@
 		<MauiAsset Include="Resources\Raw\**" LogicalName="%(RecursiveDir)%(Filename)%(Extension)" />
 	</ItemGroup>
 
-	<ItemGroup>
-	  <None Remove="Protos\gopass.proto" />
-	</ItemGroup>
 
 	<ItemGroup>
 		<PackageReference Include="Google.Protobuf" Version="3.21.5" />
@@ -76,18 +73,28 @@
 		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="9.0.0" />
 	</ItemGroup>
 
+
 	<ItemGroup>
-		<Protobuf Include="Protos\gopass.proto" GrpcServices="Client" ProtoRoot="Protos" OutputDir="%(RelativePath)..\generated" CompileOutputs="true" />
+		<None Remove="generated" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Protobuf Include="..\..\gopass-grpc\proto\gopass.proto" GrpcServices="Client" OutputDir="%(RelativePath)..\generated" CompileOutputs="true" >
+	    <Link>Protos\gopass.proto</Link>
+	  </Protobuf>
 	</ItemGroup>
 
 	<ItemGroup>
 		<Compile Include="..\generated\*.cs" Link="generated\%(Filename)%(Extension)" />
 	</ItemGroup>
-	
+
+
 	<ItemGroup>
 	  <MauiXaml Update="CommandPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	</ItemGroup>
+	
+
 
 </Project>
