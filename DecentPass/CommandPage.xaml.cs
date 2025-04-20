@@ -1,49 +1,70 @@
-using Grpc.Core;
+using Gopass;
+using Grpc.Net.Client;
 using Microsoft.Maui.Controls;
-using Microsoft.Maui;
-using ObjCRuntime;
-using static System.Net.Mime.MediaTypeNames;
-using System.Threading.Channels;
+using System.Threading.Tasks;
+namespace DecentPass;
+public partial class CommandPage : ContentPage
+{
+    private GopassService.GopassServiceClient _client;
+    public CommandPage()
+    {
+        InitializeComponent();
+        // connect to local grpc server
+        var channel = GrpcChannel.ForAddress("http://localhost:50051");
+        _client = new GopassService.GopassServiceClient(channel);
+    }
+    private async void OnCommandEntered(object sender, EventArgs e)
+    {
+        string command = CommandEntry.Text.Trim();
+        if (string.IsNullOrEmpty(command))
+        {
+            return;
+        }
+        AppendOutput($"Command: {command}");
+        CommandEntry.Text = string.Empty;
+        try
+        {
+            var output = await RunCommand(command);
+            AppendOutput(output);
+        }
+        catch (Exception ex)
+        {
+            AppendOutput($"Error: {ex.Message}");
+        }
+    }
+    private void AppendOutput(string output)
+    {
+        OutputLabel.Text += $"{output}\n";
+    }
+    private async Task<string> RunCommand(string input)
+    {
+        var args = input.Split(' ', StringSplitOptions.RemoveEmptyEntries);
+        if (args.Length == 0)
+        {
+            return "No command provided.";
+        }
+        var request = new CommandRequest
+        {
+            TimeoutSeconds = 10, // adjust as needed
+            WorkingDir = args[0], // optional, you can set default path
+        };
+        request.Args.AddRange(args);
 
-using System.Xml.Linq;
-
-<? xml version = "1.0" encoding = "utf-8" ?>
-< ContentPage xmlns = "http://schemas.microsoft.com/dotnet/2021/maui"
-             xmlns: x = "http://schemas.microsoft.com/winfx/2009/xaml"
-             x: Class = "DecentPass.CommandPage"
-             Title = "GoPass Commands" >
-
-
-    < Grid x: Name = "MainLayout" Margin = "20" RowDefinitions = "Auto,Auto,*,Auto" >
-
-
-        < !--Command entry-- >
-        < Entry x: Name = "CommandEntry"
-               Placeholder = "Enter gopass command"
-               Completed = "OnCommandEntered"
-               Grid.Row = "0" />
-
-
-        < !--Cancel button(initially hidden)-- >
-        < Button x: Name = "CancelButton"
-                Text = "Cancel Command"
-                IsVisible = "False"
-                Clicked = "OnCancelCommand"
-                Grid.Row = "1" />
-
-
-        < !--Output area-- >
-        < ScrollView x: Name = "OutputScrollView" Grid.Row = "2" >
-            < Label x: Name = "OutputLabel"
-                   LineBreakMode = "WordWrap"
-                   FontFamily = "Consolas"
-                   Padding = "10" />
-        </ ScrollView >
-
-
-        < !--Status indicator-- >
-        < ActivityIndicator x: Name = "CommandActivity"
-                          IsRunning = "False"
-                          Grid.Row = "3" />
-    </ Grid >
-</ ContentPage >
+        var response = await _client.ExecuteCommandAsync(request);
+        string result = string.Empty;
+        if (!string.IsNullOrWhiteSpace(response.Stdout))
+        {
+            result += $"Output: {response.Stdout}\n";
+        }
+        if (!string.IsNullOrWhiteSpace(response.Stderr))
+        {
+            result += $"Error: {response.Stderr}\n";
+        }
+        result += $"Exit Code: {response.ExitCode} - Success: {response.Success}\n";
+        if (!string.IsNullOrWhiteSpace(response.ErrorMessage))
+        {
+            result += $"Error: {response.ErrorMessage}\n";
+        }
+        return result;
+    }
+}
