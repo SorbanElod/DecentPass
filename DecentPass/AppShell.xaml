@@ -7,14 +7,9 @@
     Shell.FlyoutBehavior="Flyout"
     Title="DecentPass">
 
-    <TabBar>
-        <ShellContent
-            Title="Home"
-            ContentTemplate="{DataTemplate local:MainPage}"
-            Route="MainPage" />
-        <ShellContent
-            Title="Gopass CLI"
-            ContentTemplate="{DataTemplate local:CommandPage}"
-            Route="CommandPage" />
-    </TabBar>
+    <ShellContent
+        Title="Home"
+        ContentTemplate="{DataTemplate local:MainPage}"
+        Route="MainPage" />
+
 </Shell>
