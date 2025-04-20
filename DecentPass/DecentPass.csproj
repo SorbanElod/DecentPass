@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
-		<TargetFrameworks>net9.0-android;net9.0-ios;net9.0-maccatalyst;net9.0-windows10.0.19041.0</TargetFrameworks>
+		<TargetFrameworks>net9.0-maccatalyst;net9.0-windows10.0.19041.0</TargetFrameworks>
 		
 		<!-- <TargetFrameworks Condition="$([MSBuild]::IsOSPlatform('windows'))">$(TargetFrameworks);net9.0-windows10.0.19041.0</TargetFrameworks> -->
 		<!-- Uncomment to also build the tizen app. You will need to install tizen by following this: https://github.com/Samsung/Tizen.NET -->
@@ -25,7 +25,7 @@
 		<ApplicationTitle>DecentPass</ApplicationTitle>
 
 		<!-- App Identifier -->
-		<ApplicationId>com.companyname.decentpass</ApplicationId>
+		<ApplicationId>com.sorban.decentpass</ApplicationId>
 
 		<!-- Versions -->
 		<ApplicationDisplayVersion>1.0</ApplicationDisplayVersion>
@@ -34,12 +34,9 @@
 		<!-- To develop, package, and publish an app to the Microsoft Store, see: https://aka.ms/MauiTemplateUnpackaged -->
 		<WindowsPackageType>None</WindowsPackageType>
 
-		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'ios'">15.0</SupportedOSPlatformVersion>
 		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'maccatalyst'">15.0</SupportedOSPlatformVersion>
-		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'android'">21.0</SupportedOSPlatformVersion>
 		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'">10.0.17763.0</SupportedOSPlatformVersion>
 		<TargetPlatformMinVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'">10.0.17763.0</TargetPlatformMinVersion>
-		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'tizen'">6.5</SupportedOSPlatformVersion>
 	</PropertyGroup>
 
 	<ItemGroup>
@@ -75,11 +72,12 @@
 
 
 	<ItemGroup>
-		<None Remove="generated" />
+		<None Remove="..\generated\*.cs" />
 	</ItemGroup>
 
+	
 	<ItemGroup>
-	  <Protobuf Include="..\..\gopass-grpc\proto\gopass.proto" GrpcServices="Client" OutputDir="%(RelativePath)..\generated" CompileOutputs="true" >
+	  <Protobuf Include="..\..\gopass-grpc\proto\gopass.proto" GrpcServices="Client" OutputDir="%(RelativePath)..\generated" CompileOutput="fals">
 	    <Link>Protos\gopass.proto</Link>
 	  </Protobuf>
 	</ItemGroup>
@@ -88,7 +86,19 @@
 		<Compile Include="..\generated\*.cs" Link="generated\%(Filename)%(Extension)" />
 	</ItemGroup>
 
-
+	<ItemGroup>
+		<None Update="Platforms\Windows\Sidecars\MySidecar.exe">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</None>
+	</ItemGroup>
+	<!-- MAC project
+	
+	<ItemGroup>
+		<None Update="Platforms/MacCatalyst/Sidecars/MySidecarApp.app">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</None>
+	</ItemGroup>
+	-->
 	<ItemGroup>
 	  <MauiXaml Update="CommandPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
