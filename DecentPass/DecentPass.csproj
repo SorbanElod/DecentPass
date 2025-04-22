@@ -99,11 +99,6 @@
 		</None>
 	</ItemGroup>
 	-->
-	<ItemGroup>
-	  <MauiXaml Update="CommandPage.xaml">
-	    <Generator>MSBuild:Compile</Generator>
-	  </MauiXaml>
-	</ItemGroup>
 	
 
 
