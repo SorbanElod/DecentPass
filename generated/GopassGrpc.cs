@@ -73,14 +73,6 @@ namespace Gopass {
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
     static readonly grpc::Marshaller<global::Gopass.RenameResponse> __Marshaller_gopass_RenameResponse = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::Gopass.RenameResponse.Parser));
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-    static readonly grpc::Marshaller<global::Gopass.SyncRequest> __Marshaller_gopass_SyncRequest = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::Gopass.SyncRequest.Parser));
-    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-    static readonly grpc::Marshaller<global::Gopass.SyncResponse> __Marshaller_gopass_SyncResponse = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::Gopass.SyncResponse.Parser));
-    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-    static readonly grpc::Marshaller<global::Gopass.RevisionsRequest> __Marshaller_gopass_RevisionsRequest = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::Gopass.RevisionsRequest.Parser));
-    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-    static readonly grpc::Marshaller<global::Gopass.RevisionsResponse> __Marshaller_gopass_RevisionsResponse = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::Gopass.RevisionsResponse.Parser));
-    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
     static readonly grpc::Marshaller<global::Gopass.AuthRequest> __Marshaller_gopass_AuthRequest = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::Gopass.AuthRequest.Parser));
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
     static readonly grpc::Marshaller<global::Gopass.AuthResponse> __Marshaller_gopass_AuthResponse = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::Gopass.AuthResponse.Parser));
@@ -132,22 +124,6 @@ namespace Gopass {
         "RenameSecret",
         __Marshaller_gopass_RenameRequest,
         __Marshaller_gopass_RenameResponse);
-
-    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-    static readonly grpc::Method<global::Gopass.SyncRequest, global::Gopass.SyncResponse> __Method_SyncSecret = new grpc::Method<global::Gopass.SyncRequest, global::Gopass.SyncResponse>(
-        grpc::MethodType.Unary,
-        __ServiceName,
-        "SyncSecret",
-        __Marshaller_gopass_SyncRequest,
-        __Marshaller_gopass_SyncResponse);
-
-    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-    static readonly grpc::Method<global::Gopass.RevisionsRequest, global::Gopass.RevisionsResponse> __Method_RevisionsOfSercret = new grpc::Method<global::Gopass.RevisionsRequest, global::Gopass.RevisionsResponse>(
-        grpc::MethodType.Unary,
-        __ServiceName,
-        "RevisionsOfSercret",
-        __Marshaller_gopass_RevisionsRequest,
-        __Marshaller_gopass_RevisionsResponse);
 
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
     static readonly grpc::Method<global::Gopass.AuthRequest, global::Gopass.AuthResponse> __Method_Authenticate = new grpc::Method<global::Gopass.AuthRequest, global::Gopass.AuthResponse>(
@@ -477,102 +453,6 @@ namespace Gopass {
       public virtual grpc::AsyncUnaryCall<global::Gopass.RenameResponse> RenameSecretAsync(global::Gopass.RenameRequest request, grpc::CallOptions options)
       {
         return CallInvoker.AsyncUnaryCall(__Method_RenameSecret, null, options, request);
-      }
-      /// <summary>
-      /// Sync synchronizes a secret with a remote.
-      /// </summary>
-      /// <param name="request">The request to send to the server.</param>
-      /// <param name="headers">The initial metadata to send with the call. This parameter is optional.</param>
-      /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
-      /// <param name="cancellationToken">An optional token for canceling the call.</param>
-      /// <returns>The response received from the server.</returns>
-      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-      public virtual global::Gopass.SyncResponse SyncSecret(global::Gopass.SyncRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
-      {
-        return SyncSecret(request, new grpc::CallOptions(headers, deadline, cancellationToken));
-      }
-      /// <summary>
-      /// Sync synchronizes a secret with a remote.
-      /// </summary>
-      /// <param name="request">The request to send to the server.</param>
-      /// <param name="options">The options for the call.</param>
-      /// <returns>The response received from the server.</returns>
-      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-      public virtual global::Gopass.SyncResponse SyncSecret(global::Gopass.SyncRequest request, grpc::CallOptions options)
-      {
-        return CallInvoker.BlockingUnaryCall(__Method_SyncSecret, null, options, request);
-      }
-      /// <summary>
-      /// Sync synchronizes a secret with a remote.
-      /// </summary>
-      /// <param name="request">The request to send to the server.</param>
-      /// <param name="headers">The initial metadata to send with the call. This parameter is optional.</param>
-      /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
-      /// <param name="cancellationToken">An optional token for canceling the call.</param>
-      /// <returns>The call object.</returns>
-      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-      public virtual grpc::AsyncUnaryCall<global::Gopass.SyncResponse> SyncSecretAsync(global::Gopass.SyncRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
-      {
-        return SyncSecretAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
-      }
-      /// <summary>
-      /// Sync synchronizes a secret with a remote.
-      /// </summary>
-      /// <param name="request">The request to send to the server.</param>
-      /// <param name="options">The options for the call.</param>
-      /// <returns>The call object.</returns>
-      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-      public virtual grpc::AsyncUnaryCall<global::Gopass.SyncResponse> SyncSecretAsync(global::Gopass.SyncRequest request, grpc::CallOptions options)
-      {
-        return CallInvoker.AsyncUnaryCall(__Method_SyncSecret, null, options, request);
-      }
-      /// <summary>
-      /// Revisions lists all revisions of a secret.
-      /// </summary>
-      /// <param name="request">The request to send to the server.</param>
-      /// <param name="headers">The initial metadata to send with the call. This parameter is optional.</param>
-      /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
-      /// <param name="cancellationToken">An optional token for canceling the call.</param>
-      /// <returns>The response received from the server.</returns>
-      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-      public virtual global::Gopass.RevisionsResponse RevisionsOfSercret(global::Gopass.RevisionsRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
-      {
-        return RevisionsOfSercret(request, new grpc::CallOptions(headers, deadline, cancellationToken));
-      }
-      /// <summary>
-      /// Revisions lists all revisions of a secret.
-      /// </summary>
-      /// <param name="request">The request to send to the server.</param>
-      /// <param name="options">The options for the call.</param>
-      /// <returns>The response received from the server.</returns>
-      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-      public virtual global::Gopass.RevisionsResponse RevisionsOfSercret(global::Gopass.RevisionsRequest request, grpc::CallOptions options)
-      {
-        return CallInvoker.BlockingUnaryCall(__Method_RevisionsOfSercret, null, options, request);
-      }
-      /// <summary>
-      /// Revisions lists all revisions of a secret.
-      /// </summary>
-      /// <param name="request">The request to send to the server.</param>
-      /// <param name="headers">The initial metadata to send with the call. This parameter is optional.</param>
-      /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
-      /// <param name="cancellationToken">An optional token for canceling the call.</param>
-      /// <returns>The call object.</returns>
-      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-      public virtual grpc::AsyncUnaryCall<global::Gopass.RevisionsResponse> RevisionsOfSercretAsync(global::Gopass.RevisionsRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
-      {
-        return RevisionsOfSercretAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
-      }
-      /// <summary>
-      /// Revisions lists all revisions of a secret.
-      /// </summary>
-      /// <param name="request">The request to send to the server.</param>
-      /// <param name="options">The options for the call.</param>
-      /// <returns>The call object.</returns>
-      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-      public virtual grpc::AsyncUnaryCall<global::Gopass.RevisionsResponse> RevisionsOfSercretAsync(global::Gopass.RevisionsRequest request, grpc::CallOptions options)
-      {
-        return CallInvoker.AsyncUnaryCall(__Method_RevisionsOfSercret, null, options, request);
       }
       /// <summary>
       /// Authenticates the user with the given credentials.
