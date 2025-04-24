@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewmodels="clr-namespace:DecentPass.ViewModels"
+             x:Class="DecentPass.Views.LoginPage"
+             Title="Login to Gopass">
+
+    <Grid Padding="20" RowSpacing="15" VerticalOptions="Center">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <Image Grid.Row="0" 
+               Source="lock_icon.png" 
+               HeightRequest="100" 
+               WidthRequest="100" 
+               HorizontalOptions="Center" />
+
+        <Label Grid.Row="1" 
+               Text="Gopass Manager" 
+               FontSize="24" 
+               FontAttributes="Bold" 
+               HorizontalOptions="Center" 
+               Margin="0,0,0,20" />
+
+        <Entry Grid.Row="2" 
+               Placeholder="Server URL" 
+               Text="{Binding ServerUrl}" 
+               Keyboard="Url" />
+
+        <Entry Grid.Row="3" 
+               Placeholder="Passphrase" 
+               Text="{Binding Passphrase}" 
+               IsPassword="True" />
+
+        <Button Grid.Row="4" 
+                Text="Login" 
+                Command="{Binding LoginCommand}" 
+                IsEnabled="{Binding IsBusy, Converter={StaticResource InverseBoolConverter}}" />
+
+        <ActivityIndicator Grid.Row="5" 
+                           IsRunning="{Binding IsBusy}" 
+                           IsVisible="{Binding IsBusy}" 
+                           HorizontalOptions="Center" />
+
+        <Label Grid.Row="5" 
+               Text="{Binding ErrorMessage}" 
+               TextColor="Red" 
+               IsVisible="{Binding ErrorMessage, Converter={StaticResource StringNotEmptyConverter}}" 
+               HorizontalOptions="Center" />
+    </Grid>
+</ContentPage>
