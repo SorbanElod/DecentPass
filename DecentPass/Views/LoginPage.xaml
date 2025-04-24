@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:viewmodels="clr-namespace:DecentPass.ViewModels"
              x:Class="DecentPass.Views.LoginPage"
-             Title="Login to Gopass">
+             Title="Login to DecentPass">
 
     <Grid Padding="20" RowSpacing="15" VerticalOptions="Center">
         <Grid.RowDefinitions>
@@ -15,14 +15,16 @@
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
 
-        <Image Grid.Row="0" 
-               Source="lock_icon.png" 
-               HeightRequest="100" 
-               WidthRequest="100" 
-               HorizontalOptions="Center" />
+        <Image
+            Source="logo.png"
+            HeightRequest="185"
+            Aspect="AspectFit"
+            SemanticProperties.Description="gopass logo" />
+        
+       
 
         <Label Grid.Row="1" 
-               Text="Gopass Manager" 
+               Text="DecentPass" 
                FontSize="24" 
                FontAttributes="Bold" 
                HorizontalOptions="Center" 
