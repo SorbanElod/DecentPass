@@ -16,7 +16,7 @@ namespace DecentPass
         protected override Window CreateWindow(IActivationState? activationState)
         {
             // Start the platform sidecar
-            // StartPlatformSidecar();
+            StartPlatformSidecar();
 
             // Create and return the main window with AppShell
             return new Window(new AppShell());
@@ -28,7 +28,7 @@ namespace DecentPass
         {
             if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
             {
-                string sidecarPath = Path.Combine(AppContext.BaseDirectory, "Sidecars", "my-backend.exe");
+                string sidecarPath = Path.Combine(AppContext.BaseDirectory, "Sidecars", "gopass-grpc.exe");
                 if (File.Exists(sidecarPath))
                 {
                     Process.Start(new ProcessStartInfo
@@ -42,7 +42,7 @@ namespace DecentPass
             else if (RuntimeInformation.IsOSPlatform(OSPlatform.OSX))
             {
                 // If it's a .app bundle
-                var appBundlePath = Path.Combine(AppContext.BaseDirectory, "Sidecars", "my-backend.app");
+                var appBundlePath = Path.Combine(AppContext.BaseDirectory, "Sidecars", "gopass-grpc.app");
                 if (Directory.Exists(appBundlePath))
                 {
                     Process.Start("open", $"\"{appBundlePath}\"");
@@ -50,7 +50,7 @@ namespace DecentPass
                 else
                 {
                     // If it's just a Unix binary
-                    var unixBinary = Path.Combine(AppContext.BaseDirectory, "Sidecars", "my-backend");
+                    var unixBinary = Path.Combine(AppContext.BaseDirectory, "Sidecars", "gopass-grpc");
                     if (File.Exists(unixBinary))
                     {
                         Process.Start(new ProcessStartInfo
