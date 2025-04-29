@@ -28,7 +28,7 @@ namespace DecentPass
         {
             if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
             {
-                string sidecarPath = Path.Combine(AppContext.BaseDirectory, "Sidecars", "gopass-grpc.exe");
+                string sidecarPath = Path.Combine(AppContext.BaseDirectory,"Platforms\\Windows", "gopass-grpc.exe");
                 if (File.Exists(sidecarPath))
                 {
                     Process.Start(new ProcessStartInfo
@@ -42,7 +42,7 @@ namespace DecentPass
             else if (RuntimeInformation.IsOSPlatform(OSPlatform.OSX))
             {
                 // If it's a .app bundle
-                var appBundlePath = Path.Combine(AppContext.BaseDirectory, "Sidecars", "gopass-grpc.app");
+                var appBundlePath = Path.Combine(AppContext.BaseDirectory, ".", "gopass-grpc.app");
                 if (Directory.Exists(appBundlePath))
                 {
                     Process.Start("open", $"\"{appBundlePath}\"");
