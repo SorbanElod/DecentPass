@@ -78,7 +78,7 @@
 
 	
 	<ItemGroup>
-	  <Protobuf Include="..\..\gopass-grpc\proto\gopass.proto" GrpcServices="Client" OutputDir="%(RelativePath)..\generated" CompileOutput="fals">
+	  <Protobuf Include="..\..\gopass-grpc\proto\gopass.proto" GrpcServices="Client" OutputDir="%(RelativePath)..\generated" CompileOutput="false">
 	    <Link>Protos\gopass.proto</Link>
 	  </Protobuf>
 	</ItemGroup>

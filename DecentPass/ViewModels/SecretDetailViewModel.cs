@@ -183,9 +183,17 @@ namespace DecentPass.ViewModels
             IsBusy = true;
             try
             {
-                await _gopassClient.RenameSecretAsync(_oldSecretName, SecretName);
-                await _gopassClient.SetSecretAsync(SecretName, SecretValue);
-                await _navigation.PopAsync();
+                if (_oldSecretName == SecretName)
+                {
+                    await _gopassClient.SetSecretAsync(SecretName, SecretValue);
+                    await _navigation.PopAsync();
+                }
+                else
+                {
+                    await _gopassClient.RenameSecretAsync(_oldSecretName, SecretName);
+                    await _gopassClient.SetSecretAsync(SecretName, SecretValue);
+                    await _navigation.PopAsync();
+                }
             }
             catch (Exception ex)
             {
